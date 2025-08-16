@@ -36,10 +36,10 @@ function create_anim_state(frames, frame_duration, loop)
   }
 end
 
-function init_entity(anim_states, initial_anim_state_name)
+function init_entity(x,y,anim_states,initial_anim_state_name)
   local entity = {
-    x = 64,
-    y = 64,
+    x = x,
+    y = y,
     anim_state = anim_states[initial_anim_state_name], -- Set the initial anim state
 
     draw = function(self)

@@ -4,12 +4,17 @@ __lua__
 
 #include draw_number.lua
 #include shared.lua
+#include chips/init_chip_anim_states.lua
+#include chips/init_chip.lua
+#include chips/init_chips.lua
 #include player/init_player_anim_states.lua
 #include player/init_player.lua
 
 function _init()
   player_anim_states = init_player_anim_states()
-  player = init_player(player_anim_states, 'idle')
+  player = init_player(64,64,player_anim_states, 'idle')
+
+  chips = init_chips()
 end
 
 function _update()
@@ -25,7 +30,7 @@ end
 function _draw()
   cls()
   player:draw()
-
-  print_large_number(42, 10, 50, 8)     -- Red number at (10, 50)
-  print_large_number(12, 0, 0, 11)  -- Green number at (10, 70)
+  for chip in all(chips) do
+    chip:draw()
+  end
 end
