@@ -9,11 +9,11 @@ function init_chips()
   local chips = {}
   for i = 0, 59 do
     if i % 4 == 0 then
-      shuffled_colors = {8, 11, 12, 13}
+      shuffled_colors = {8, 3, 12, 9}
       shuffle(shuffled_colors)
     end
     local color = shuffled_colors[(i % 4) + 1]
-    add(chips, init_chip(0, i * 10, color, i))
+    add(chips, init_chip(0, i * 15, color, i))
   end
 
   return chips

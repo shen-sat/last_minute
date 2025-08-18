@@ -33,7 +33,6 @@ function _draw()
   for chip in all(chips) do
     chip:draw()
   end
-  sspr(0,0,23,16,100,110)
 
 end
 __gfx__
