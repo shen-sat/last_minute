@@ -7,6 +7,7 @@ __lua__
 #include chips/init_chip_anim_states.lua
 #include chips/init_chip.lua
 #include chips/init_chips.lua
+#include hand/init_hand.lua
 #include player/init_player_anim_states.lua
 #include player/init_player.lua
 
@@ -15,6 +16,8 @@ function _init()
   player = init_player(64,64,player_anim_states, 'idle')
 
   chips = init_chips()
+
+  hand = init_hand(104, 26, chips)
 end
 
 function _update()
@@ -25,6 +28,7 @@ function _update()
   if btnp(3) then -- Down key pressed
     player:set_anim_state('hurt')
   end
+  hand:update()
 end
 
 function _draw()
@@ -33,6 +37,7 @@ function _draw()
   for chip in all(chips) do
     chip:draw()
   end
+  hand:draw()
 
 end
 __gfx__
